@@ -1,0 +1,135 @@
+{
+  "stats": [
+    [
+      "AI / ML",
+      "Focus"
+    ],
+    [
+      "Deep Learning",
+      "Research"
+    ],
+    [
+      "Computer Vision",
+      "Focus"
+    ],
+    [
+      "Smart Agriculture",
+      "Application"
+    ]
+  ],
+  "links": [
+    [
+      "Google Scholar",
+      "#"
+    ],
+    [
+      "SINTA",
+      "#"
+    ],
+    [
+      "ORCID",
+      "#"
+    ],
+    [
+      "GitHub",
+      "https://github.com/miftahsholihinteknik-max"
+    ]
+  ],
+  "skills": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Computer Vision",
+    "Image Processing",
+    "CNN",
+    "LSTM",
+    "Transfer Learning",
+    "Python",
+    "TensorFlow",
+    "Keras"
+  ],
+  "research": [
+    [
+      "01",
+      "Artificial Intelligence",
+      "Sistem cerdas untuk klasifikasi, prediksi, diagnosis, dan pengambilan keputusan berbasis data."
+    ],
+    [
+      "02",
+      "Computer Vision",
+      "Deep learning untuk klasifikasi citra, deteksi objek, dan analisis visual."
+    ],
+    [
+      "03",
+      "Smart Agriculture",
+      "AI untuk pertanian presisi, diagnosis tanaman, prediksi lingkungan, dan monitoring."
+    ]
+  ],
+  "publications": [
+    [
+      "2025",
+      "Deep Learning for Plant Disease Classification",
+      "Journal / Publisher",
+      "https://doi.org/"
+    ],
+    [
+      "2025",
+      "LSTM-Based Environmental Prediction",
+      "Journal / Publisher",
+      "https://doi.org/"
+    ],
+    [
+      "2024",
+      "Explainable AI for Precision Agriculture",
+      "Journal / Publisher",
+      "https://doi.org/"
+    ]
+  ],
+  "courses": [
+    [
+      "Machine Learning",
+      "Konsep, algoritma, implementasi, evaluasi, dan pengembangan model."
+    ],
+    [
+      "Artificial Intelligence",
+      "Konsep kecerdasan buatan dan sistem cerdas."
+    ],
+    [
+      "Pengolahan Citra Digital",
+      "Pengolahan citra dan implementasi computer vision."
+    ],
+    [
+      "Struktur Data",
+      "Struktur data, algoritma, dan kompleksitas."
+    ]
+  ],
+  "education": [
+    [
+      "—",
+      "Program Magister / Doktor",
+      "Tambahkan universitas dan tahun."
+    ],
+    [
+      "—",
+      "Program Sarjana",
+      "Tambahkan universitas dan tahun."
+    ]
+  ],
+  "contact": [
+    [
+      "Email",
+      "Tambahkan email akademik",
+      "#"
+    ],
+    [
+      "Institution",
+      "Universitas Islam Lamongan",
+      "#"
+    ],
+    [
+      "GitHub",
+      "miftahsholihinteknik-max",
+      "https://github.com/miftahsholihinteknik-max"
+    ]
+  ]
+}

@@ -1,88 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Website akademik Miftahus Sholihin, Dosen Teknik Informatika dan peneliti Artificial Intelligence.">
-<meta name="author" content="Miftahus Sholihin">
-<title>Miftahus Sholihin | Academic Profile</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Profil akademik Miftahus Sholihin — Dosen Teknik Informatika, Artificial Intelligence, Machine Learning, Deep Learning, dan Computer Vision.">
+<title>Miftahus Sholihin — Academic Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="site-header">
-<nav class="container nav">
-<a class="brand" href="#home">Miftahus <span>Sholihin</span></a>
-<button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
-<ul class="nav-links" id="navLinks">
-<li><a href="#home">Home</a></li><li><a href="#about">Profil</a></li>
-<li><a href="#research">Penelitian</a></li><li><a href="#publications">Publikasi</a></li>
-<li><a href="#teaching">Pengajaran</a></li><li><a href="#education">Pendidikan</a></li>
-<li><a href="#contact">Kontak</a></li>
-</ul>
+<header class="header">
+<nav class="nav container">
+<a href="#home" class="logo">MS<span>.</span></a>
+<button class="menu" id="menu" aria-label="Menu">☰</button>
+<div class="navlinks" id="navlinks">
+<a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#teaching">Teaching</a><a href="#contact">Contact</a>
+</div>
 </nav>
 </header>
 
 <main>
 <section class="hero" id="home">
 <div class="container hero-grid">
-<div class="hero-copy">
-<span class="eyebrow">DOSEN • PENELITI • DEVELOPER</span>
-<h1>Miftahus <span>Sholihin</span></h1>
-<h2>Dosen Teknik Informatika &amp; AI Researcher</h2>
-<p class="lead">Mengembangkan solusi berbasis Artificial Intelligence, Machine Learning, Deep Learning, dan Computer Vision untuk pendidikan, penelitian, dan permasalahan dunia nyata.</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="#about">Tentang Saya</a>
-<a class="btn btn-secondary" href="#publications">Publikasi</a>
-<a class="btn btn-ghost" href="cv/CV_Miftahus_Sholihin.pdf" target="_blank">Download CV</a>
+<div>
+<div class="eyebrow">ACADEMIC PROFILE · UNIVERSITAS ISLAM LAMONGAN</div>
+<h1>Miftahus<br><em>Sholihin.</em></h1>
+<p class="role">Lecturer in Informatics · AI Researcher</p>
+<p class="intro">Saya mengembangkan solusi kecerdasan buatan yang menghubungkan riset, pendidikan, dan kebutuhan dunia nyata—dengan fokus pada machine learning, deep learning, computer vision, dan smart agriculture.</p>
+<div class="actions"><a class="btn dark" href="#about">Explore Profile</a><a class="text-link" href="cv/CV_Miftahus_Sholihin.pdf" target="_blank">Curriculum Vitae ↗</a></div>
+<div class="links" id="links"></div>
 </div>
-<div class="academic-links" id="academicLinks"></div>
-</div>
-<div class="hero-profile">
-<div class="profile-ring">
-<img id="profileImage" src="images/profile.jpg" alt="Foto profil Miftahus Sholihin" onerror="this.style.display='none';document.getElementById('profileFallback').style.display='flex';">
-<div id="profileFallback" class="profile-fallback">MS</div>
-</div>
-<div class="affiliation-card"><strong>Universitas Islam Lamongan</strong><span>Program Studi Teknik Informatika</span></div>
+<div class="portrait">
+<div class="portrait-frame"><img src="images/profile.jpg" alt="Miftahus Sholihin" onerror="this.style.display='none';document.getElementById('initials').style.display='grid'"><div id="initials">MS</div></div>
+<div class="caption"><span>01</span><div><strong>Research &amp; Education</strong><small>Artificial Intelligence · Computer Vision</small></div></div>
 </div>
 </div>
 </section>
 
-<section class="stats"><div class="container stats-grid" id="stats"></div></section>
+<section class="numbers"><div class="container numbers-grid" id="stats"></div></section>
 
-<section class="section" id="about">
-<div class="container two-col">
-<div><span class="section-kicker">PROFIL</span><h2 class="section-title">Tentang Saya</h2>
-<p>Saya merupakan dosen pada bidang Teknik Informatika dengan fokus pada pengembangan teknologi kecerdasan buatan dan sistem berbasis data.</p>
-<p>Aktivitas akademik mencakup pendidikan, penelitian, pengabdian kepada masyarakat, pembimbingan mahasiswa, dan pengembangan perangkat lunak. Fokus keilmuan meliputi Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Image Processing, Transfer Learning, serta penerapan AI pada sistem prediktif dan smart agriculture.</p></div>
-<div class="info-card"><h3>Bidang Keahlian</h3><div class="chips" id="skills"></div></div>
-</div>
-</section>
+<section class="section" id="about"><div class="container split">
+<div class="label">01 — ABOUT</div>
+<div><h2>Building knowledge,<br><em>creating impact.</em></h2><p>Saya merupakan dosen Teknik Informatika dengan aktivitas akademik pada pendidikan, penelitian, pembimbingan mahasiswa, pengembangan perangkat lunak, dan inovasi teknologi.</p><p>Fokus keilmuan mencakup Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Image Processing, serta penerapannya pada sistem prediktif dan pertanian presisi.</p><div class="skill-list" id="skills"></div></div>
+</div></section>
 
-<section class="section section-soft" id="research">
-<div class="container"><span class="section-kicker">RESEARCH</span><h2 class="section-title">Bidang Penelitian</h2><p class="section-intro">Tema penelitian utama yang menjadi fokus pengembangan.</p><div class="cards-3" id="researchGrid"></div></div>
-</section>
+<section class="section paper" id="research"><div class="container"><div class="label">02 — RESEARCH</div><div class="section-head"><div><h2>Research<br><em>interests.</em></h2></div><p>Beberapa tema yang menjadi ruang eksplorasi dan pengembangan penelitian.</p></div><div class="research-grid" id="researchGrid"></div></div></section>
 
-<section class="section" id="publications">
-<div class="container"><span class="section-kicker">PUBLICATIONS</span><h2 class="section-title">Publikasi</h2><p class="section-intro">Data publikasi dikelola melalui file JSON sehingga mudah diperbarui.</p><div id="publicationList" class="publication-list"></div></div>
-</section>
+<section class="section" id="publications"><div class="container"><div class="label">03 — PUBLICATIONS</div><div class="section-head"><div><h2>Selected<br><em>publications.</em></h2></div><p>Publikasi dapat diperbarui melalui <code>data/publications.json</code>.</p></div><div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="2025">2025</button><button class="filter" data-filter="2024">2024</button><button class="filter" data-filter="2023">2023</button></div><div class="pubs" id="pubs"></div></div></section>
 
-<section class="section section-soft" id="teaching">
-<div class="container"><span class="section-kicker">TEACHING</span><h2 class="section-title">Mata Kuliah</h2><div class="cards-3" id="courseGrid"></div></div>
-</section>
+<section class="section paper" id="teaching"><div class="container"><div class="label">04 — TEACHING</div><div class="section-head"><div><h2>Teaching<br><em>areas.</em></h2></div><p>Mata kuliah dan bidang pembelajaran yang dikembangkan.</p></div><div class="course-grid" id="courses"></div></div></section>
 
-<section class="section" id="education">
-<div class="container narrow"><span class="section-kicker">ACADEMIC JOURNEY</span><h2 class="section-title">Pendidikan</h2><div class="timeline" id="educationTimeline"></div></div>
-</section>
+<section class="section"><div class="container split"><div class="label">05 — EDUCATION</div><div class="timeline" id="education"></div></div></section>
 
-<section class="section section-soft"><div class="container"><div class="collab"><div><span class="section-kicker">COLLABORATION</span><h2>Terbuka untuk kolaborasi akademik</h2><p>Penelitian bersama, publikasi ilmiah, pengembangan AI, proyek mahasiswa, dan kegiatan akademik lainnya.</p></div><a class="btn btn-primary" href="#contact">Hubungi Saya</a></div></div></section>
-
-<section class="section" id="contact">
-<div class="container contact-grid"><div><span class="section-kicker">CONTACT</span><h2 class="section-title">Kontak</h2><p>Untuk kolaborasi penelitian, kegiatan akademik, pengembangan teknologi, atau komunikasi profesional.</p></div><div class="contact-card" id="contactCard"></div></div>
-</section>
+<section class="section contact" id="contact"><div class="container contact-box"><div><div class="label">06 — CONTACT</div><h2>Let's work<br><em>together.</em></h2><p>Terbuka untuk kolaborasi penelitian, publikasi, pengembangan teknologi, dan kegiatan akademik.</p></div><div class="contact-data" id="contactData"></div></div></section>
 </main>
 
-<footer><div class="container footer-inner"><div><strong>Miftahus Sholihin</strong><br><span>Academic Profile</span></div><div>© <span id="year"></span> Miftahus Sholihin</div></div></footer>
-<button id="toTop" class="to-top" aria-label="Kembali ke atas">↑</button>
+<footer><div class="container footer"><span>Miftahus Sholihin</span><span>© <b id="year"></b> · Academic Profile</span></div></footer>
 <script src="js/script.js"></script>
 </body>
 </html>
