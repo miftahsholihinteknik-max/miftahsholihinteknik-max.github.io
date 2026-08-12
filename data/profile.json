@@ -20,11 +20,11 @@
   "links": [
     [
       "Google Scholar",
-      "https://scholar.google.com/citations?user=RNCkAXAAAAAJ&hl=id&oi=ao"
+      "#"
     ],
     [
       "SINTA",
-      "https://sinta.kemdiktisaintek.go.id/authors/profile/6019553"
+      "#"
     ],
     [
       "ORCID",
@@ -41,7 +41,12 @@
     "Deep Learning",
     "Computer Vision",
     "Image Processing",
-    "Python"
+    "CNN",
+    "LSTM",
+    "Transfer Learning",
+    "Python",
+    "TensorFlow",
+    "Keras"
   ],
   "research": [
     [
@@ -63,7 +68,8 @@
   "contact": [
     [
       "Email",
-      "miftahus.sholihin@unisla.ac.id"
+      "Tambahkan email akademik",
+      "#"
     ],
     [
       "Institution",
