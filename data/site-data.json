@@ -1,0 +1,139 @@
+{
+  "stats": [
+    {
+      "value": "AI / ML",
+      "label": "Fokus Keilmuan"
+    },
+    {
+      "value": "Deep Learning",
+      "label": "Riset Utama"
+    },
+    {
+      "value": "Computer Vision",
+      "label": "Bidang Riset"
+    },
+    {
+      "value": "Smart Agriculture",
+      "label": "Aplikasi AI"
+    }
+  ],
+  "academicLinks": [
+    {
+      "label": "Google Scholar",
+      "url": "#"
+    },
+    {
+      "label": "SINTA",
+      "url": "#"
+    },
+    {
+      "label": "ORCID",
+      "url": "#"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/miftahsholihinteknik-max"
+    }
+  ],
+  "skills": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Computer Vision",
+    "Image Processing",
+    "CNN",
+    "LSTM",
+    "Transfer Learning",
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "Scikit-learn"
+  ],
+  "research": [
+    {
+      "icon": "🤖",
+      "title": "Artificial Intelligence",
+      "text": "Pengembangan sistem cerdas untuk klasifikasi, prediksi, diagnosis, dan pengambilan keputusan berbasis data."
+    },
+    {
+      "icon": "👁️",
+      "title": "Computer Vision",
+      "text": "Pemanfaatan deep learning dan CNN untuk klasifikasi citra, deteksi, dan analisis visual."
+    },
+    {
+      "icon": "🌱",
+      "title": "Smart Agriculture",
+      "text": "Penerapan AI untuk pertanian presisi, diagnosis tanaman, prediksi lingkungan, dan monitoring."
+    }
+  ],
+  "publications": [
+    {
+      "year": "Publikasi",
+      "title": "Deep Learning for Plant Disease Classification",
+      "text": "Penerapan convolutional neural network dan transfer learning untuk klasifikasi penyakit tanaman berbasis citra.",
+      "url": "#"
+    },
+    {
+      "year": "Publikasi",
+      "title": "LSTM-Based Environmental Prediction",
+      "text": "Pengembangan Long Short-Term Memory untuk prediksi data lingkungan dan indeks kekeringan.",
+      "url": "#"
+    },
+    {
+      "year": "Publikasi",
+      "title": "Explainable AI for Precision Agriculture",
+      "text": "Pengembangan AI explainable untuk mendukung diagnosis tanaman pada pertanian presisi.",
+      "url": "#"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Machine Learning",
+      "text": "Konsep, algoritma, implementasi, evaluasi, dan pengembangan model machine learning."
+    },
+    {
+      "title": "Artificial Intelligence",
+      "text": "Konsep kecerdasan buatan, representasi pengetahuan, pencarian, dan sistem cerdas."
+    },
+    {
+      "title": "Pengolahan Citra Digital",
+      "text": "Pengolahan citra, ekstraksi fitur, klasifikasi, dan implementasi computer vision."
+    },
+    {
+      "title": "Struktur Data",
+      "text": "Konsep struktur data, algoritma, kompleksitas, dan implementasi pemrograman."
+    }
+  ],
+  "education": [
+    {
+      "year": "Tambahkan tahun",
+      "title": "Program Magister / Doktor",
+      "text": "Tambahkan program studi, universitas, dan tahun."
+    },
+    {
+      "year": "Tambahkan tahun",
+      "title": "Program Sarjana",
+      "text": "Tambahkan program studi, universitas, dan tahun."
+    }
+  ],
+  "contact": [
+    {
+      "icon": "✉️",
+      "label": "Email",
+      "value": "Tambahkan email akademik",
+      "url": "#"
+    },
+    {
+      "icon": "🏛️",
+      "label": "Institusi",
+      "value": "Universitas Islam Lamongan",
+      "url": "#"
+    },
+    {
+      "icon": "💻",
+      "label": "GitHub",
+      "value": "miftahsholihinteknik-max",
+      "url": "https://github.com/miftahsholihinteknik-max"
+    }
+  ]
+}
