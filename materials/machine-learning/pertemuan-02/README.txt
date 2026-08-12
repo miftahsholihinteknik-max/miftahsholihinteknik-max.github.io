@@ -1,1 +1,1 @@
-Upload bahan ajar PDF/PPTX/IPYNB/DOCX/dataset di folder ini.
+Upload materi pertemuan di folder ini.
