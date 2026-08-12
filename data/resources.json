@@ -1,0 +1,34 @@
+[
+  {
+    "course": "Machine Learning",
+    "meeting": 1,
+    "title": "Pengantar Machine Learning",
+    "type": "PDF",
+    "description": "Konsep dasar, paradigma, dan workflow machine learning.",
+    "url": "materials/machine-learning/pertemuan-01/README.txt"
+  },
+  {
+    "course": "Machine Learning",
+    "meeting": 2,
+    "title": "Data Preprocessing",
+    "type": "PDF",
+    "description": "Data cleaning, transformation, encoding, dan scaling.",
+    "url": "materials/machine-learning/pertemuan-02/README.txt"
+  },
+  {
+    "course": "Machine Learning",
+    "meeting": 3,
+    "title": "Regression",
+    "type": "PDF",
+    "description": "Konsep regresi dan evaluasi model.",
+    "url": "materials/machine-learning/pertemuan-03/README.txt"
+  },
+  {
+    "course": "Machine Learning",
+    "meeting": 4,
+    "title": "Classification",
+    "type": "PDF",
+    "description": "Konsep klasifikasi dan evaluasi model.",
+    "url": "materials/machine-learning/pertemuan-04/README.txt"
+  }
+]
