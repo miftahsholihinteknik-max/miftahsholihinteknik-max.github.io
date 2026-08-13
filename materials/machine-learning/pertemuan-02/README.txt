@@ -1,1 +1,1 @@
-Upload bahan ajar PDF/PPTX/IPYNB/DOCX/dataset di folder ini.
+Folder bahan ajar siap diisi. Upload PDF/PPTX/IPYNB/DOCX/Dataset di sini.

@@ -1,1 +1,1 @@
-Masukkan CV sebagai cv/CV_Miftahus_Sholihin.pdf
+Masukkan CV dengan nama CV_Miftahus_Sholihin.pdf di sini.
