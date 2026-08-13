@@ -1,19 +1,20 @@
 [
-  {
-    "year": 2025,
-    "title": "Judul publikasi Anda",
-    "authors": "Miftahus Sholihin, et al.",
-    "journal": "Nama Jurnal",
-    "quartile": "Q1/Q2/SINTA",
-    "indexing": [
-      "Scopus"
-    ],
-    "doi": "#",
-    "url": "#",
-    "abstract": "Tambahkan ringkasan singkat artikel di sini.",
-    "keywords": [
-      "Artificial Intelligence",
-      "Deep Learning"
-    ]
-  }
+  [
+    "2025",
+    "Deep Learning for Plant Disease Classification",
+    "Journal / Publisher",
+    "https://doi.org/"
+  ],
+  [
+    "2025",
+    "LSTM-Based Environmental Prediction",
+    "Journal / Publisher",
+    "https://doi.org/"
+  ],
+  [
+    "2024",
+    "Explainable AI for Precision Agriculture",
+    "Journal / Publisher",
+    "https://doi.org/"
+  ]
 ]

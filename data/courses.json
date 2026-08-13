@@ -2,29 +2,25 @@
   {
     "code": "IF4501",
     "name": "Machine Learning",
-    "semester": "—",
-    "meetings": 16,
-    "description": "Konsep, algoritma, implementasi, evaluasi, dan pengembangan model machine learning."
+    "description": "Konsep, algoritma, implementasi, evaluasi, dan pengembangan model.",
+    "meetings": 16
   },
   {
     "code": "—",
     "name": "Artificial Intelligence",
-    "semester": "—",
-    "meetings": 16,
-    "description": "Konsep dan implementasi sistem kecerdasan buatan."
+    "description": "Konsep kecerdasan buatan dan sistem cerdas.",
+    "meetings": 16
   },
   {
     "code": "—",
     "name": "Pengolahan Citra Digital",
-    "semester": "—",
-    "meetings": 16,
-    "description": "Pengolahan citra dan implementasi computer vision."
+    "description": "Pengolahan citra dan implementasi computer vision.",
+    "meetings": 16
   },
   {
     "code": "—",
     "name": "Struktur Data",
-    "semester": "—",
-    "meetings": 16,
-    "description": "Struktur data, algoritma, dan kompleksitas."
+    "description": "Struktur data, algoritma, dan kompleksitas.",
+    "meetings": 16
   }
 ]

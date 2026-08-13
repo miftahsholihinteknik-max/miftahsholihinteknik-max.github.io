@@ -18,31 +18,22 @@
     ]
   ],
   "links": [
-    {
-      "label": "Google Scholar",
-      "url": "#",
-      "icon": "scholar"
-    },
-    {
-      "label": "SINTA",
-      "url": "#",
-      "icon": "sinta"
-    },
-    {
-      "label": "ORCID",
-      "url": "#",
-      "icon": "orcid"
-    },
-    {
-      "label": "Scopus",
-      "url": "#",
-      "icon": "scopus"
-    },
-    {
-      "label": "GitHub",
-      "url": "https://github.com/miftahsholihinteknik-max",
-      "icon": "github"
-    }
+    [
+      "Google Scholar",
+      "#"
+    ],
+    [
+      "SINTA",
+      "#"
+    ],
+    [
+      "ORCID",
+      "#"
+    ],
+    [
+      "GitHub",
+      "https://github.com/miftahsholihinteknik-max"
+    ]
   ],
   "skills": [
     "Artificial Intelligence",
@@ -53,7 +44,6 @@
     "CNN",
     "LSTM",
     "Transfer Learning",
-    "Explainable AI",
     "Python",
     "TensorFlow",
     "Keras"
@@ -66,18 +56,13 @@
     ],
     [
       "02",
-      "Deep Learning",
-      "Pengembangan CNN, LSTM, transfer learning, attention mechanism, dan explainable AI."
+      "Computer Vision",
+      "Deep learning untuk klasifikasi citra, deteksi objek, dan analisis visual."
     ],
     [
       "03",
-      "Computer Vision",
-      "Analisis citra dan visual recognition untuk klasifikasi serta diagnosis otomatis."
-    ],
-    [
-      "04",
       "Smart Agriculture",
-      "Penerapan AI untuk pertanian presisi, diagnosis tanaman, dan prediksi lingkungan."
+      "AI untuk pertanian presisi, diagnosis tanaman, prediksi lingkungan, dan monitoring."
     ]
   ],
   "contact": [

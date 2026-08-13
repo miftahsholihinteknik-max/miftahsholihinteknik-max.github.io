@@ -1,20 +1,21 @@
-# Miftahus Sholihin — Academic Portfolio
+# Miftahus Sholihin — Academic Portal
 
-Website profil dosen profesional, minimalis, dan data-driven.
+Website profil dosen profesional dan minimalis.
 
-## Menu
+## Halaman
 Home · About · Research · Publications · Teaching · Resources · Contact
 
-## Data utama
-- `data/profile.json` — profil, skill, link akademik, research, kontak
-- `data/publications.json` — publikasi lengkap
-- `data/courses.json` — mata kuliah
-- `data/resources.json` — bahan ajar/resource
-- `data/DATA-GUIDE.md` — panduan pengelolaan data
+## Data
+- `data/profile.json`
+- `data/publications.json`
+- `data/courses.json`
+- `data/resources.json`
 
-## File akademik
-- `images/profile.jpg` — foto profil
-- `cv/CV_Miftahus_Sholihin.pdf` — CV
-- `materials/` — PDF, PPTX, IPYNB, DOCX, dataset, dll.
+## Bahan ajar
+Simpan file PDF/PPTX/IPYNB/DOCX/dataset di folder `materials/`, lalu daftarkan pada `data/resources.json`.
 
-Upload seluruh isi paket ke root repository `miftahsholihinteknik-max.github.io`.
+## File pribadi
+- Foto: `images/profile.jpg`
+- CV: `cv/CV_Miftahus_Sholihin.pdf`
+
+Upload seluruh isi paket ini ke root repository `miftahsholihinteknik-max.github.io`.
