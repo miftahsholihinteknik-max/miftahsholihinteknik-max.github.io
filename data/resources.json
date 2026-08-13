@@ -1,85 +1,111 @@
 [
   {
-  "course": "Machine Learning",
-  "meeting": 1,
-  "title": "Pengantar Machine Learning",
-  "type": "Modul",
-  "description": "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
-  "links": [
-    {
-      "label": "Modul PDF",
-      "type": "pdf",
-      "url": "https://drive.google.com/..."
-    },
-    {
-      "label": "Video YouTube",
-      "type": "youtube",
-      "url": "https://www.youtube.com/watch?v=..."
-    },
-    {
-      "label": "Notebook",
-      "type": "notebook",
-      "url": "https://colab.research.google.com/..."
-    },
-    {
-      "label": "Dataset",
-      "type": "dataset",
-      "url": "https://drive.google.com/..."
-    }
-  ]
-},
+    "course": "Machine Learning",
+    "meeting": 1,
+    "title": "Pengantar Machine Learning",
+    "type": "Modul",
+    "description": "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
+    "links": [
+      {
+        "label": "Modul PDF",
+        "type": "pdf",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Video YouTube",
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=..."
+      },
+      {
+        "label": "Notebook Colab",
+        "type": "notebook",
+        "url": "https://colab.research.google.com/..."
+      },
+      {
+        "label": "Dataset",
+        "type": "dataset",
+        "url": "https://drive.google.com/..."
+      }
+    ]
+  },
+
   {
     "course": "Machine Learning",
     "meeting": 2,
     "title": "Data Preprocessing",
     "type": "Modul",
     "description": "Data cleaning, transformation, encoding, normalization, dan scaling.",
-    "files": []
+    "links": [
+      {
+        "label": "Modul PDF",
+        "type": "pdf",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Notebook Colab",
+        "type": "notebook",
+        "url": "https://colab.research.google.com/..."
+      },
+      {
+        "label": "Dataset",
+        "type": "dataset",
+        "url": "https://drive.google.com/..."
+      }
+    ]
   },
-  {
-    "course": "Machine Learning",
-    "meeting": 3,
-    "title": "Regression",
-    "type": "Modul",
-    "description": "Regresi, training, prediksi, dan evaluasi model.",
-    "files": []
-  },
-  {
-    "course": "Machine Learning",
-    "meeting": 4,
-    "title": "Classification",
-    "type": "Modul",
-    "description": "Klasifikasi, confusion matrix, precision, recall, F1, dan ROC-AUC.",
-    "files": []
-  },
-  {
-  "course": "Pengolahan Citra Digital",
-  "meeting": 1,
-  "title": "Pengantar Machine Learning",
-  "type": "Modul",
-  "description": "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
-  "links": [
-    {
-      "label": "Modul PDF",
-      "type": "pdf",
-      "url": "https://drive.google.com/..."
-    },
-    {
-      "label": "Video YouTube",
-      "type": "youtube",
-      "url": "https://www.youtube.com/watch?v=..."
-    },
-    {
-      "label": "Notebook",
-      "type": "notebook",
-      "url": "https://colab.research.google.com/..."
-    },
-    {
-      "label": "Dataset",
-      "type": "dataset",
-      "url": "https://drive.google.com/..."
-    }
-  ]
-}
-]
 
+  {
+    "course": "Artificial Intelligence",
+    "meeting": 1,
+    "title": "Konsep Dasar Artificial Intelligence",
+    "type": "Modul",
+    "description": "Pengertian AI, sejarah, paradigma, agen cerdas, dan penerapan AI.",
+    "links": [
+      {
+        "label": "Modul PDF",
+        "type": "pdf",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Video YouTube",
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=..."
+      }
+    ]
+  },
+
+  {
+    "course": "Pengolahan Citra Digital",
+    "meeting": 1,
+    "title": "Pengantar Pengolahan Citra Digital",
+    "type": "Modul",
+    "description": "Konsep citra digital, representasi citra, pixel, resolusi, dan ruang warna.",
+    "links": [
+      {
+        "label": "Modul PDF",
+        "type": "pdf",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Notebook",
+        "type": "notebook",
+        "url": "https://colab.research.google.com/..."
+      }
+    ]
+  },
+
+  {
+    "course": "Struktur Data",
+    "meeting": 1,
+    "title": "Konsep Dasar Struktur Data",
+    "type": "Modul",
+    "description": "Konsep struktur data, tipe data, array, linked list, stack, dan queue.",
+    "links": [
+      {
+        "label": "Modul PDF",
+        "type": "pdf",
+        "url": "https://drive.google.com/..."
+      }
+    ]
+  }
+]
