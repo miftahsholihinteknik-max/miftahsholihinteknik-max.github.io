@@ -1,0 +1,38 @@
+/* =========================================
+   ASSIGNMENTS
+========================================= */
+.assignment-section{background:#f8f8f5}
+.assignment-controls{display:grid;grid-template-columns:1fr 220px 190px 170px;gap:10px;margin-bottom:35px}
+.assignment-controls input,.assignment-controls select{width:100%;border:1px solid #d6d7d1;background:#fff;padding:12px 14px;font-family:"DM Sans",sans-serif;font-size:11px;color:#18211f;outline:none;transition:.25s ease}
+.assignment-controls input:focus,.assignment-controls select:focus{border-color:#a86b42;box-shadow:0 0 0 3px rgba(168,107,66,.08)}
+.assignment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#d8d8d1;border-top:1px solid #d8d8d1;border-left:1px solid #d8d8d1}
+.assignment-card{position:relative;background:#fff;padding:32px;min-height:430px;transition:transform .3s ease,background .3s ease,box-shadow .3s ease}
+.assignment-card:hover{background:#fcfbf8;transform:translateY(-4px);box-shadow:0 16px 35px rgba(24,33,31,.08);z-index:2}
+.assignment-card-top{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-bottom:16px;border-bottom:1px solid #e5e4de}
+.assignment-course{color:#a86b42;font-size:10px;font-weight:700;letter-spacing:.4px}
+.assignment-meeting{color:#999f9c;font-size:8px;letter-spacing:1px}
+.assignment-status-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.assignment-type{display:inline-flex;border:1px solid #deded7;padding:5px 8px;font-size:8px;color:#737b78}
+.assignment-status{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.assignment-status.open{color:#6b7d65}.assignment-status.closed{color:#a04d4d}
+.assignment-card h3{font:600 28px/1.2 "Playfair Display",serif;letter-spacing:-.5px;margin:35px 0 12px;color:#18211f}
+.assignment-description{margin:0;color:#727b78;font-size:11px;line-height:1.8}
+.assignment-instructions{margin-top:24px;padding-top:18px;border-top:1px solid #e5e4de}
+.assignment-instructions small,.assignment-deadline small{display:block;color:#a86b42;font-size:8px;font-weight:700;letter-spacing:1.5px;margin-bottom:8px}
+.assignment-instructions ul{margin:0;padding-left:18px}.assignment-instructions li{color:#6f7875;font-size:10px;line-height:1.7;margin-bottom:3px}
+.assignment-deadline{margin-top:25px;padding:13px 15px;background:#f5f3ef;border-left:2px solid #a86b42}
+.assignment-deadline strong{font:600 14px "Playfair Display",serif;color:#18211f}
+.assignment-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.assignment-actions a,.assignment-disabled{display:inline-flex;align-items:center;gap:4px;padding:7px 10px;border:1px solid #d8d8d2;font-size:9px;font-weight:600;color:#a86b42;transition:.25s ease}
+.assignment-actions a:hover{border-color:#a86b42;background:#a86b42;color:#fff}
+.assignment-actions .assignment-submit{background:#18211f;border-color:#18211f;color:#fff}
+.assignment-actions .assignment-submit:hover{background:#a86b42;border-color:#a86b42}
+.assignment-disabled{color:#999;cursor:default}
+.assignment-empty{grid-column:1/-1;background:#fff;padding:70px 30px;text-align:center}
+.assignment-empty strong{display:block;font:600 25px "Playfair Display",serif;color:#18211f;margin-bottom:8px}
+.assignment-empty span{font-size:11px;color:#858c88}
+.course-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:15px}
+.course-actions a{font-size:10px;color:#a86b42;font-weight:700}
+.course-actions a:hover{color:#18211f}
+@media(max-width:850px){.assignment-controls{grid-template-columns:1fr 1fr}.assignment-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.assignment-controls{grid-template-columns:1fr}.assignment-card{padding:24px;min-height:auto}.assignment-card h3{font-size:24px}.assignment-card-top,.assignment-status-row{align-items:flex-start}.assignment-actions{flex-direction:column}.assignment-actions a,.assignment-disabled{width:100%}.course-actions{flex-direction:column;gap:7px}}
