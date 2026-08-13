@@ -1,67 +1,1657 @@
-const $=id=>document.getElementById(id);
-const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-const safeUrl=u=>/^(https?:\/\/|mailto:|#)/i.test(String(u??""))?String(u):"#";
+/* =========================================================
+   MIFTAHUS SHOLIHIN — ACADEMIC PORTFOLIO
+   Main JavaScript
+   ========================================================= */
 
-const fallbackProfile={"name":"Miftahus Sholihin","title":"Dosen Teknik Informatika","institution":"Universitas Islam Lamongan","tagline":"Artificial Intelligence · Machine Learning · Deep Learning · Computer Vision","bio":["Dosen Teknik Informatika yang berfokus pada pengembangan kecerdasan buatan dan penerapannya untuk menyelesaikan persoalan nyata.","Aktivitas akademik mencakup pendidikan, penelitian, publikasi ilmiah, pembimbingan mahasiswa, dan pengembangan teknologi berbasis data."],"skills":["Artificial Intelligence","Machine Learning","Deep Learning","Computer Vision","Image Processing","CNN","LSTM","Transfer Learning","Explainable AI","Python","TensorFlow","Keras"],"links":[{"label":"Google Scholar","url":"#"},{"label":"SINTA","url":"#"},{"label":"ORCID","url":"#"},{"label":"Scopus","url":"#"},{"label":"GitHub","url":"https://github.com/miftahsholihinteknik-max"}],"research":[{"number":"01","title":"Artificial Intelligence","description":"Sistem cerdas untuk klasifikasi, prediksi, diagnosis, dan pengambilan keputusan berbasis data."},{"number":"02","title":"Deep Learning","description":"CNN, LSTM, transfer learning, attention mechanism, dan explainable AI."},{"number":"03","title":"Computer Vision","description":"Analisis citra, visual recognition, dan diagnosis otomatis berbasis deep learning."},{"number":"04","title":"Smart Agriculture","description":"AI untuk pertanian presisi, diagnosis tanaman, dan prediksi lingkungan."}],"contact":[{"label":"Email","value":"Tambahkan email akademik","url":"#"},{"label":"Institution","value":"Universitas Islam Lamongan","url":"#"},{"label":"GitHub","value":"miftahsholihinteknik-max","url":"https://github.com/miftahsholihinteknik-max"}]};
-const fallbackPublications=[{"year":2025,"title":"Judul publikasi Anda","authors":"Miftahus Sholihin, et al.","journal":"Nama Jurnal","quartile":"Q1 / Q2 / SINTA","indexing":["Scopus"],"doi":"#","url":"#","keywords":["Artificial Intelligence","Deep Learning"]}];
-const fallbackCourses=[{"code":"IF4501","name":"Machine Learning","meetings":16,"description":"Konsep, algoritma, implementasi, evaluasi, dan pengembangan model machine learning."},{"code":"—","name":"Artificial Intelligence","meetings":16,"description":"Konsep dan implementasi sistem kecerdasan buatan."},{"code":"—","name":"Pengolahan Citra Digital","meetings":16,"description":"Pengolahan citra dan implementasi computer vision."},{"code":"—","name":"Struktur Data","meetings":16,"description":"Struktur data, algoritma, dan kompleksitas."}];
-const fallbackResources=[{"course":"Machine Learning","meeting":1,"title":"Pengantar Machine Learning","type":"Modul","description":"Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.","files":[]}];
-const fallbackAssignments=[{"course":"Machine Learning","meeting":1,"title":"Eksplorasi Konsep Machine Learning","type":"Tugas Individu","deadline":"2026-09-01","status":"open","description":"Memahami konsep dasar machine learning dan penerapannya.","instructions":["Jelaskan pengertian machine learning.","Identifikasi minimal tiga contoh penerapan.","Pilih satu permasalahan nyata."],"materials":[],"submission":{"label":"Kumpulkan Tugas","url":"#"}}];
+"use strict";
 
-async function load(file,fallback){try{const r=await fetch(file,{cache:"no-store"});if(!r.ok)throw new Error(r.status);return await r.json()}catch(e){console.warn("Fallback:",file,e);return fallback}}
-function formatDeadline(date){if(!date)return"No deadline";const d=new Date(`${date}T00:00:00`);return Number.isNaN(d.getTime())?date:new Intl.DateTimeFormat("id-ID",{day:"2-digit",month:"long",year:"numeric"}).format(d)}
+/* =========================================================
+   FALLBACK DATA
+   Digunakan jika file JSON gagal dimuat.
+   ========================================================= */
 
-function initAssignments(assignments){
- const search=$("assignmentSearch"),course=$("assignmentCourse"),type=$("assignmentType"),status=$("assignmentStatus"),grid=$("assignmentsGrid");
- if(!search||!course||!type||!status||!grid)return;
- [...new Set(assignments.map(x=>x.course).filter(Boolean))].sort().forEach(x=>course.insertAdjacentHTML("beforeend",`<option value="${esc(x)}">${esc(x)}</option>`));
- [...new Set(assignments.map(x=>x.type).filter(Boolean))].sort().forEach(x=>type.insertAdjacentHTML("beforeend",`<option value="${esc(x)}">${esc(x)}</option>`));
- function render(){
-  const q=search.value.trim().toLowerCase(),c=course.value,t=type.value,s=status.value;
-  const items=assignments.filter(x=>`${x.title||""} ${x.course||""} ${x.type||""} ${x.description||""}`.toLowerCase().includes(q)&&(!c||x.course===c)&&(!t||x.type===t)&&(!s||x.status===s)).sort((a,b)=>String(a.course).localeCompare(String(b.course))||Number(a.meeting||0)-Number(b.meeting||0));
-  grid.innerHTML=items.length?items.map(x=>{
-   const instructions=Array.isArray(x.instructions)?x.instructions:[],materials=Array.isArray(x.materials)?x.materials:[];
-   const links=materials.filter(m=>m?.url).map(m=>`<a href="${esc(safeUrl(m.url))}" target="_blank" rel="noopener">${esc(m.label||"Material")} ↗</a>`).join("");
-   const sub=x.submission||{};
-   const submit=sub.url&&sub.url!=="#"?`<a class="assignment-submit" href="${esc(safeUrl(sub.url))}" target="_blank" rel="noopener">${esc(sub.label||"Submit Assignment")} ↗</a>`:`<span class="assignment-disabled">Submission link not available</span>`;
-   return `<article class="assignment-card"><div class="assignment-card-top"><span class="assignment-course">${esc(x.course)}</span><span class="assignment-meeting">PERTEMUAN ${esc(x.meeting)}</span></div><div class="assignment-status-row"><span class="assignment-type">${esc(x.type)}</span><span class="assignment-status ${x.status==="closed"?"closed":"open"}">${x.status==="closed"?"Closed":"Open"}</span></div><h3>${esc(x.title)}</h3><p class="assignment-description">${esc(x.description)}</p>${instructions.length?`<div class="assignment-instructions"><small>TASK</small><ul>${instructions.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`:""}<div class="assignment-deadline"><small>DEADLINE</small><strong>${formatDeadline(x.deadline)}</strong></div><div class="assignment-actions">${links}${submit}</div></article>`
-  }).join(""):`<div class="assignment-empty"><strong>No assignments found.</strong><span>Tidak ada penugasan yang sesuai dengan filter.</span></div>`;
- }
- ["input","change"].forEach(ev=>{search.addEventListener(ev,render);course.addEventListener(ev,render);type.addEventListener(ev,render);status.addEventListener(ev,render)});
- render();
+const fallbackProfile = {
+    name: "Miftahus Sholihin",
+    title: "Dosen Teknik Informatika",
+    institution: "Universitas Islam Lamongan",
+    tagline:
+        "Artificial Intelligence · Machine Learning · Deep Learning · Computer Vision",
+
+    bio: [
+        "Dosen Teknik Informatika yang berfokus pada pengembangan kecerdasan buatan dan penerapannya untuk menyelesaikan persoalan nyata.",
+        "Aktivitas akademik mencakup pendidikan, penelitian, publikasi ilmiah, pembimbingan mahasiswa, dan pengembangan teknologi berbasis data."
+    ],
+
+    skills: [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Computer Vision",
+        "Image Processing",
+        "CNN",
+        "LSTM",
+        "Transfer Learning",
+        "Explainable AI",
+        "Python",
+        "TensorFlow",
+        "Keras"
+    ],
+
+    links: [
+        {
+            label: "Google Scholar",
+            url: "#"
+        },
+        {
+            label: "SINTA",
+            url: "#"
+        },
+        {
+            label: "ORCID",
+            url: "#"
+        },
+        {
+            label: "Scopus",
+            url: "#"
+        },
+        {
+            label: "GitHub",
+            url: "https://github.com/miftahsholihinteknik-max"
+        }
+    ],
+
+    research: [
+        {
+            number: "01",
+            title: "Artificial Intelligence",
+            description:
+                "Sistem cerdas untuk klasifikasi, prediksi, diagnosis, dan pengambilan keputusan berbasis data."
+        },
+        {
+            number: "02",
+            title: "Deep Learning",
+            description:
+                "CNN, LSTM, transfer learning, attention mechanism, dan explainable AI."
+        },
+        {
+            number: "03",
+            title: "Computer Vision",
+            description:
+                "Analisis citra, visual recognition, dan diagnosis otomatis berbasis deep learning."
+        },
+        {
+            number: "04",
+            title: "Smart Agriculture",
+            description:
+                "AI untuk pertanian presisi, diagnosis tanaman, dan prediksi lingkungan."
+        }
+    ],
+
+    contact: [
+        {
+            label: "Email",
+            value: "Tambahkan email akademik",
+            url: "#"
+        },
+        {
+            label: "Institution",
+            value: "Universitas Islam Lamongan",
+            url: "#"
+        },
+        {
+            label: "GitHub",
+            value: "miftahsholihinteknik-max",
+            url: "https://github.com/miftahsholihinteknik-max"
+        }
+    ]
+};
+
+
+const fallbackPublications = [
+    {
+        year: 2025,
+        title: "Judul publikasi Anda",
+        authors: "Miftahus Sholihin, et al.",
+        journal: "Nama Jurnal",
+        quartile: "Q1 / Q2 / SINTA",
+        indexing: ["Scopus"],
+        doi: "#",
+        url: "#",
+        keywords: [
+            "Artificial Intelligence",
+            "Deep Learning"
+        ]
+    }
+];
+
+
+const fallbackCourses = [
+    {
+        code: "IF4501",
+        name: "Machine Learning",
+        meetings: 16,
+        description:
+            "Konsep, algoritma, implementasi, evaluasi, dan pengembangan model machine learning."
+    },
+    {
+        code: "—",
+        name: "Artificial Intelligence",
+        meetings: 16,
+        description:
+            "Konsep dan implementasi sistem kecerdasan buatan."
+    },
+    {
+        code: "—",
+        name: "Pengolahan Citra Digital",
+        meetings: 16,
+        description:
+            "Pengolahan citra dan implementasi computer vision."
+    },
+    {
+        code: "—",
+        name: "Struktur Data",
+        meetings: 16,
+        description:
+            "Struktur data, algoritma, dan kompleksitas."
+    }
+];
+
+
+const fallbackResources = [
+    {
+        course: "Machine Learning",
+        meeting: 1,
+        title: "Pengantar Machine Learning",
+        type: "Modul",
+        description:
+            "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
+        links: []
+    }
+];
+
+
+const fallbackAssignments = [
+    {
+        course: "Machine Learning",
+        meeting: 1,
+        title: "Eksplorasi Konsep Machine Learning",
+        type: "Tugas Individu",
+        deadline: "2026-09-01",
+        status: "open",
+        description:
+            "Mahasiswa memahami konsep dasar machine learning dan mampu mengidentifikasi penerapannya pada permasalahan nyata.",
+
+        instructions: [
+            "Jelaskan pengertian machine learning dengan bahasa sendiri.",
+            "Identifikasi minimal tiga contoh penerapan machine learning.",
+            "Pilih satu permasalahan nyata yang dapat diselesaikan menggunakan machine learning.",
+            "Jelaskan pendekatan machine learning yang sesuai.",
+            "Susun laporan dalam format PDF."
+        ],
+
+        materials: [],
+
+        submission: {
+            label: "Kumpulkan Tugas",
+            url: "#"
+        }
+    }
+];
+
+
+/* =========================================================
+   HELPER
+   ========================================================= */
+
+/**
+ * Shortcut getElementById
+ */
+const $ = (id) => document.getElementById(id);
+
+
+/**
+ * Escape HTML
+ */
+function esc(value) {
+    return String(value ?? "").replace(
+        /[&<>"']/g,
+        (char) => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        })[char]
+    );
 }
 
-async function init(){
- const [p,pubs,courses,res,assignments]=await Promise.all([load("data/profile.json",fallbackProfile),load("data/publications.json",fallbackPublications),load("data/courses.json",fallbackCourses),load("data/resources.json",fallbackResources),load("data/assignments.json",fallbackAssignments)]);
- if($("title"))$("title").textContent=p.title||"";
- if($("tagline"))$("tagline").textContent=p.tagline||"";
- if($("bio"))$("bio").innerHTML=(p.bio||[]).map(x=>`<p>${esc(x)}</p>`).join("");
- if($("skills"))$("skills").innerHTML=(p.skills||[]).map((x,i)=>`<span>${String(i+1).padStart(2,"0")} · ${esc(x)}</span>`).join("");
- if($("links"))$("links").innerHTML=(p.links||[]).map(x=>`<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.label)} <b>↗</b></a>`).join("");
- if($("researchGrid"))$("researchGrid").innerHTML=(p.research||[]).map(x=>`<article class="research-card"><div class="r-top"><span>${esc(x.number)}</span><b>↗</b></div><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p></article>`).join("");
- if($("contactData"))$("contactData").innerHTML=(p.contact||[]).map(x=>`<div class="contact-item"><small>${esc(x.label)}</small><a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.value)} ↗</a></div>`).join("");
 
- if($("pubFilters")&&$("pubSearch")&&$("pubs")){
-  const years=[...new Set(pubs.map(x=>String(x.year)).filter(Boolean))].sort((a,b)=>b-a);
-  $("pubFilters").innerHTML=`<button class="active" data-year="all">All</button>`+years.map(y=>`<button data-year="${esc(y)}">${esc(y)}</button>`).join("");
-  function renderPubs(){const q=$("pubSearch").value.toLowerCase(),y=document.querySelector("#pubFilters .active")?.dataset.year||"all";const items=pubs.filter(x=>(y==="all"||String(x.year)===y)&&`${x.title} ${x.authors} ${x.journal} ${(x.keywords||[]).join(" ")}`.toLowerCase().includes(q));$("pubs").innerHTML=items.length?items.map(x=>`<article class="pub"><div class="pub-year">${esc(x.year)}</div><div><h3>${esc(x.title)}</h3><p>${esc(x.authors)}</p><p><b>${esc(x.journal)}</b> · ${esc(x.quartile||"")}${x.indexing?.length?" · "+esc(x.indexing.join(", ")):""}</p>${x.keywords?.length?`<div class="tags">${x.keywords.map(k=>`<span>${esc(k)}</span>`).join("")}</div>`:""}</div><div class="pub-links">${x.doi&&x.doi!=="#"?`<a href="${esc(safeUrl(x.doi))}" target="_blank">DOI ↗</a>`:""}${x.url&&x.url!=="#"?`<a href="${esc(safeUrl(x.url))}" target="_blank">Article ↗</a>`:""}</div></article>`).join(""):`<div class="empty">Belum ada publikasi yang cocok.</div>`}
-  $("pubSearch").addEventListener("input",renderPubs);$("pubFilters").addEventListener("click",e=>{if(e.target.tagName!=="BUTTON")return;document.querySelectorAll("#pubFilters button").forEach(b=>b.classList.remove("active"));e.target.classList.add("active");renderPubs()});renderPubs();
- }
+/**
+ * Load JSON
+ */
+async function loadJSON(file, fallback) {
+    try {
+        const response = await fetch(file, {
+            cache: "no-cache"
+        });
 
- if($("courses")){
-  $("courses").innerHTML=courses.map(c=>`<article class="course-card"><div><span>${esc(c.code)}</span><small>${esc(c.meetings)} MEETINGS</small></div><h3>${esc(c.name)}</h3><p>${esc(c.description)}</p><div class="course-actions"><a href="#resources" class="course-resource-link" data-course="${esc(c.name)}">Explore resources ↗</a><a href="#assignments" class="course-assignment-link" data-course="${esc(c.name)}">Explore assignments ↗</a></div></article>`).join("");
- }
- if($("courseFilter")&&$("resourceSearch")&&$("resourcesGrid")){
-  [...new Set(res.map(x=>x.course).filter(Boolean))].sort().forEach(c=>$("courseFilter").insertAdjacentHTML("beforeend",`<option value="${esc(c)}">${esc(c)}</option>`));
-  function renderResources(){const q=$("resourceSearch").value.toLowerCase(),c=$("courseFilter").value;const items=res.filter(x=>(!c||x.course===c)&&`${x.title} ${x.course} ${x.description} ${x.type}`.toLowerCase().includes(q));$("resourcesGrid").innerHTML=items.length?items.map(x=>`<article class="resource-card"><div class="resource-meta"><span>${esc(x.type)}</span><b>PERTEMUAN ${esc(x.meeting)}</b></div><h3>${esc(x.title)}</h3><p>${esc(x.course)} — ${esc(x.description)}</p><div class="files">${x.files?.length?x.files.map(f=>`<a href="${esc(safeUrl(f.url))}" target="_blank" rel="noopener">${esc(f.label||f.type||"Open")} ↗</a>`).join(""):`<span>Folder siap diisi</span>`}</div></article>`).join(""):`<div class="empty">Tidak ada resource yang cocok.</div>`}
-  $("resourceSearch").addEventListener("input",renderResources);$("courseFilter").addEventListener("change",renderResources);renderResources();
- }
- initAssignments(assignments);
- document.querySelectorAll(".course-resource-link").forEach(a=>a.addEventListener("click",()=>{const f=$("courseFilter");if(f){f.value=a.dataset.course;f.dispatchEvent(new Event("change"))}}));
- document.querySelectorAll(".course-assignment-link").forEach(a=>a.addEventListener("click",()=>{const f=$("assignmentCourse");if(f){f.value=a.dataset.course;f.dispatchEvent(new Event("change"))}}));
- if($("year"))$("year").textContent=new Date().getFullYear();
- if($("menu")&&$("navlinks")){$("menu").addEventListener("click",()=>$("navlinks").classList.toggle("open"));document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>$("navlinks").classList.remove("open")))}
- if($("progress")){const update=()=>{$("progress").style.width=`${Math.min(100,Math.max(0,window.scrollY/(document.documentElement.scrollHeight-innerHeight)*100))}%`};window.addEventListener("scroll",update,{passive:true});update()}
- if($("theme"))$("theme").addEventListener("click",()=>$("theme").classList.toggle("active"));
+        if (!response.ok) {
+            throw new Error(`Failed to load ${file}`);
+        }
+
+        return await response.json();
+
+    } catch (error) {
+        console.warn(`Tidak dapat memuat ${file}`, error);
+        return fallback;
+    }
 }
-init();
+
+
+/**
+ * Format tanggal Indonesia
+ */
+function formatDate(dateString) {
+    if (!dateString) {
+        return "-";
+    }
+
+    const date = new Date(dateString + "T00:00:00");
+
+    if (Number.isNaN(date.getTime())) {
+        return dateString;
+    }
+
+    return new Intl.DateTimeFormat("id-ID", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    }).format(date);
+}
+
+
+/**
+ * Status tugas
+ */
+function getAssignmentStatus(assignment) {
+
+    const status = String(
+        assignment.status || ""
+    ).toLowerCase();
+
+    if (status === "closed") {
+        return {
+            label: "Ditutup",
+            className: "closed"
+        };
+    }
+
+    if (status === "draft") {
+        return {
+            label: "Draft",
+            className: "draft"
+        };
+    }
+
+    if (status === "open") {
+        return {
+            label: "Terbuka",
+            className: "open"
+        };
+    }
+
+    return {
+        label: "Informasi",
+        className: ""
+    };
+}
+
+
+/**
+ * Ikon/link type
+ */
+function getLinkLabel(link) {
+
+    if (!link) {
+        return "Open";
+    }
+
+    if (link.label) {
+        return link.label;
+    }
+
+    const type = String(
+        link.type || ""
+    ).toLowerCase();
+
+    const labels = {
+        pdf: "Modul PDF",
+        youtube: "Video YouTube",
+        notebook: "Notebook Colab",
+        colab: "Notebook Colab",
+        dataset: "Dataset",
+        drive: "Google Drive",
+        slide: "Slide",
+        slides: "Slide",
+        assignment: "Tugas",
+        github: "GitHub"
+    };
+
+    return labels[type] || "Open Resource";
+}
+
+
+/**
+ * Ikon sederhana berdasarkan type
+ */
+function getLinkIcon(link) {
+
+    const type = String(
+        link?.type || ""
+    ).toLowerCase();
+
+    const icons = {
+        pdf: "PDF",
+        youtube: "YT",
+        notebook: "COLAB",
+        colab: "COLAB",
+        dataset: "DATA",
+        drive: "DRIVE",
+        slide: "SLIDE",
+        slides: "SLIDE",
+        github: "GIT"
+    };
+
+    return icons[type] || "↗";
+}
+
+
+/* =========================================================
+   MAIN INIT
+   ========================================================= */
+
+async function init() {
+
+    /* -----------------------------------------------------
+       LOAD ALL DATA
+       ----------------------------------------------------- */
+
+    const [
+        profile,
+        publications,
+        courses,
+        resources,
+        assignments
+    ] = await Promise.all([
+
+        loadJSON(
+            "data/profile.json",
+            fallbackProfile
+        ),
+
+        loadJSON(
+            "data/publications.json",
+            fallbackPublications
+        ),
+
+        loadJSON(
+            "data/courses.json",
+            fallbackCourses
+        ),
+
+        loadJSON(
+            "data/resources.json",
+            fallbackResources
+        ),
+
+        loadJSON(
+            "data/assignments.json",
+            fallbackAssignments
+        )
+    ]);
+
+
+    /* -----------------------------------------------------
+       PROFILE
+       ----------------------------------------------------- */
+
+    if ($("title")) {
+        $("title").textContent =
+            profile.title || "";
+    }
+
+    if ($("tagline")) {
+        $("tagline").textContent =
+            profile.tagline || "";
+    }
+
+
+    /* -----------------------------------------------------
+       BIO
+       ----------------------------------------------------- */
+
+    if ($("bio")) {
+
+        $("bio").innerHTML =
+            (profile.bio || [])
+                .map(
+                    paragraph =>
+                        `<p>${esc(paragraph)}</p>`
+                )
+                .join("");
+    }
+
+
+    /* -----------------------------------------------------
+       SKILLS
+       ----------------------------------------------------- */
+
+    if ($("skills")) {
+
+        $("skills").innerHTML =
+            (profile.skills || [])
+                .map(
+                    (skill, index) =>
+                        `<span>
+                            ${String(index + 1).padStart(2, "0")}
+                            ·
+                            ${esc(skill)}
+                        </span>`
+                )
+                .join("");
+    }
+
+
+    /* -----------------------------------------------------
+       SOCIAL LINKS
+       ----------------------------------------------------- */
+
+    if ($("links")) {
+
+        $("links").innerHTML =
+            (profile.links || [])
+                .map(link => {
+
+                    const url =
+                        link.url || "#";
+
+                    return `
+                        <a
+                            href="${esc(url)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ${esc(link.label)}
+                            <b>↗</b>
+                        </a>
+                    `;
+                })
+                .join("");
+    }
+
+
+    /* -----------------------------------------------------
+       RESEARCH
+       ----------------------------------------------------- */
+
+    if ($("researchGrid")) {
+
+        $("researchGrid").innerHTML =
+            (profile.research || [])
+                .map(item => {
+
+                    return `
+                        <article class="research-card">
+
+                            <div class="r-top">
+                                <span>
+                                    ${esc(item.number)}
+                                </span>
+
+                                <b>↗</b>
+                            </div>
+
+                            <h3>
+                                ${esc(item.title)}
+                            </h3>
+
+                            <p>
+                                ${esc(item.description)}
+                            </p>
+
+                        </article>
+                    `;
+                })
+                .join("");
+    }
+
+
+    /* -----------------------------------------------------
+       CONTACT
+       ----------------------------------------------------- */
+
+    if ($("contactData")) {
+
+        $("contactData").innerHTML =
+            (profile.contact || [])
+                .map(item => {
+
+                    return `
+                        <div class="contact-item">
+
+                            <small>
+                                ${esc(item.label)}
+                            </small>
+
+                            <a
+                                href="${esc(item.url || "#")}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                ${esc(item.value)}
+                                ↗
+                            </a>
+
+                        </div>
+                    `;
+                })
+                .join("");
+    }
+
+
+    /* =====================================================
+       PUBLICATIONS
+       ===================================================== */
+
+    const pubFilters =
+        $("pubFilters");
+
+    const pubSearch =
+        $("pubSearch");
+
+    const pubs =
+        $("pubs");
+
+
+    if (pubFilters && pubs) {
+
+        const years = [
+            ...new Set(
+                publications.map(
+                    item => String(item.year)
+                )
+            )
+        ].sort(
+            (a, b) => Number(b) - Number(a)
+        );
+
+
+        pubFilters.innerHTML =
+            `<button
+                class="active"
+                data-year="all"
+            >
+                All
+            </button>` +
+
+            years
+                .map(
+                    year =>
+                        `<button data-year="${esc(year)}">
+                            ${esc(year)}
+                        </button>`
+                )
+                .join("");
+
+
+        function renderPublications() {
+
+            const query =
+                (pubSearch?.value || "")
+                    .toLowerCase()
+                    .trim();
+
+            const activeYear =
+                pubFilters
+                    .querySelector(".active")
+                    ?.dataset.year || "all";
+
+
+            const filtered =
+                publications.filter(item => {
+
+                    const text = `
+                        ${item.title || ""}
+                        ${item.authors || ""}
+                        ${item.journal || ""}
+                        ${(item.keywords || []).join(" ")}
+                    `.toLowerCase();
+
+
+                    const matchSearch =
+                        text.includes(query);
+
+                    const matchYear =
+                        activeYear === "all" ||
+                        String(item.year) === activeYear;
+
+                    return (
+                        matchSearch &&
+                        matchYear
+                    );
+                });
+
+
+            if (!filtered.length) {
+
+                pubs.innerHTML = `
+                    <div class="empty">
+                        Belum ada publikasi yang cocok.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            pubs.innerHTML =
+                filtered
+                    .map(item => {
+
+                        const keywords =
+                            item.keywords || [];
+
+
+                        const doi =
+                            item.doi &&
+                            item.doi !== "#"
+                                ? `
+                                    <a
+                                        href="${esc(item.doi)}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        DOI ↗
+                                    </a>
+                                `
+                                : "";
+
+
+                        const article =
+                            item.url &&
+                            item.url !== "#"
+                                ? `
+                                    <a
+                                        href="${esc(item.url)}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Article ↗
+                                    </a>
+                                `
+                                : "";
+
+
+                        return `
+                            <article class="pub">
+
+                                <div class="pub-year">
+                                    ${esc(item.year)}
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        ${esc(item.title)}
+                                    </h3>
+
+                                    <p>
+                                        ${esc(item.authors)}
+                                    </p>
+
+                                    <p>
+                                        <b>
+                                            ${esc(item.journal)}
+                                        </b>
+
+                                        ${
+                                            item.quartile
+                                                ? ` · ${esc(item.quartile)}`
+                                                : ""
+                                        }
+
+                                        ${
+                                            item.indexing?.length
+                                                ? ` · ${esc(
+                                                    item.indexing.join(", ")
+                                                  )}`
+                                                : ""
+                                        }
+                                    </p>
+
+                                    ${
+                                        keywords.length
+                                            ? `
+                                                <div class="tags">
+                                                    ${keywords
+                                                        .map(
+                                                            keyword =>
+                                                                `<span>
+                                                                    ${esc(keyword)}
+                                                                </span>`
+                                                        )
+                                                        .join("")}
+                                                </div>
+                                            `
+                                            : ""
+                                    }
+
+                                </div>
+
+                                <div class="pub-links">
+
+                                    ${doi}
+
+                                    ${article}
+
+                                </div>
+
+                            </article>
+                        `;
+                    })
+                    .join("");
+        }
+
+
+        if (pubSearch) {
+            pubSearch.addEventListener(
+                "input",
+                renderPublications
+            );
+        }
+
+
+        pubFilters.addEventListener(
+            "click",
+            event => {
+
+                const button =
+                    event.target.closest("button");
+
+                if (!button) {
+                    return;
+                }
+
+
+                pubFilters
+                    .querySelectorAll("button")
+                    .forEach(
+                        item =>
+                            item.classList.remove("active")
+                    );
+
+
+                button.classList.add("active");
+
+                renderPublications();
+            }
+        );
+
+
+        renderPublications();
+    }
+
+
+    /* =====================================================
+       COURSES
+       ===================================================== */
+
+    const coursesContainer =
+        $("courses");
+
+
+    if (coursesContainer) {
+
+        coursesContainer.innerHTML =
+            courses
+                .map(course => {
+
+                    return `
+                        <article class="course-card">
+
+                            <div>
+
+                                <span>
+                                    ${esc(course.code || "—")}
+                                </span>
+
+                                <small>
+                                    ${esc(course.meetings || 16)}
+                                    MEETINGS
+                                </small>
+
+                            </div>
+
+                            <h3>
+                                ${esc(course.name)}
+                            </h3>
+
+                            <p>
+                                ${esc(course.description)}
+                            </p>
+
+                            <a
+                                href="#resources"
+                                class="explore-resource"
+                                data-course="${esc(course.name)}"
+                            >
+                                Explore resources ↗
+                            </a>
+
+                        </article>
+                    `;
+                })
+                .join("");
+    }
+
+
+    /* =====================================================
+       RESOURCES
+       ===================================================== */
+
+    const resourceSearch =
+        $("resourceSearch");
+
+    const courseFilter =
+        $("courseFilter");
+
+    const resourcesGrid =
+        $("resourcesGrid");
+
+
+    /*
+       Isi dropdown mata kuliah
+    */
+
+    if (courseFilter) {
+
+        const resourceCourses = [
+            ...new Set(
+                resources
+                    .map(item => item.course)
+                    .filter(Boolean)
+            )
+        ];
+
+
+        resourceCourses.forEach(course => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = course;
+            option.textContent = course;
+
+            courseFilter.appendChild(option);
+        });
+    }
+
+
+    /*
+       Render resources
+    */
+
+    function renderResources() {
+
+        if (!resourcesGrid) {
+            return;
+        }
+
+
+        const query =
+            (resourceSearch?.value || "")
+                .toLowerCase()
+                .trim();
+
+
+        const selectedCourse =
+            courseFilter?.value || "";
+
+
+        const filtered =
+            resources.filter(item => {
+
+                const searchableText = `
+                    ${item.course || ""}
+                    ${item.title || ""}
+                    ${item.description || ""}
+                    ${item.type || ""}
+                `.toLowerCase();
+
+
+                const matchSearch =
+                    searchableText.includes(query);
+
+
+                const matchCourse =
+                    !selectedCourse ||
+                    item.course === selectedCourse;
+
+
+                return (
+                    matchSearch &&
+                    matchCourse
+                );
+            });
+
+
+        if (!filtered.length) {
+
+            resourcesGrid.innerHTML = `
+                <div class="empty">
+                    Tidak ada resource yang cocok.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        resourcesGrid.innerHTML =
+            filtered
+                .map(item => {
+
+                    const links =
+                        Array.isArray(item.links)
+                            ? item.links
+                            : [];
+
+
+                    const linksHTML =
+                        links.length
+                            ? links
+                                .map(link => {
+
+                                    return `
+                                        <a
+                                            href="${esc(link.url || "#")}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title="${esc(link.label || "")}"
+                                        >
+                                            <span>
+                                                ${esc(
+                                                    getLinkIcon(link)
+                                                )}
+                                            </span>
+
+                                            ${esc(
+                                                getLinkLabel(link)
+                                            )}
+
+                                            ↗
+                                        </a>
+                                    `;
+                                })
+                                .join("")
+                            : `
+                                <span>
+                                    Belum ada link materi
+                                </span>
+                            `;
+
+
+                    return `
+                        <article
+                            class="resource-card"
+                            data-course="${esc(item.course)}"
+                        >
+
+                            <div class="resource-meta">
+
+                                <span>
+                                    ${esc(item.type || "Resource")}
+                                </span>
+
+                                <b>
+                                    PERTEMUAN
+                                    ${esc(item.meeting)}
+                                </b>
+
+                            </div>
+
+                            <h3>
+                                ${esc(item.title)}
+                            </h3>
+
+                            <p>
+                                ${esc(item.course)}
+                                —
+                                ${esc(item.description)}
+                            </p>
+
+                            <div class="files">
+                                ${linksHTML}
+                            </div>
+
+                        </article>
+                    `;
+                })
+                .join("");
+    }
+
+
+    if (resourceSearch) {
+
+        resourceSearch.addEventListener(
+            "input",
+            renderResources
+        );
+    }
+
+
+    if (courseFilter) {
+
+        courseFilter.addEventListener(
+            "change",
+            renderResources
+        );
+    }
+
+
+    /*
+       Explore resources dari kartu mata kuliah
+    */
+
+    if (coursesContainer) {
+
+        coursesContainer.addEventListener(
+            "click",
+            event => {
+
+                const link =
+                    event.target.closest(
+                        ".explore-resource"
+                    );
+
+                if (!link) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                const course =
+                    link.dataset.course || "";
+
+
+                if (courseFilter) {
+
+                    courseFilter.value =
+                        course;
+                }
+
+
+                if (resourceSearch) {
+
+                    resourceSearch.value = "";
+                }
+
+
+                renderResources();
+
+
+                const resourcesSection =
+                    $("resources");
+
+
+                if (resourcesSection) {
+
+                    resourcesSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            }
+        );
+    }
+
+
+    renderResources();
+
+
+    /* =====================================================
+       ASSIGNMENTS
+       ===================================================== */
+
+    /*
+       Mendukung index.html yang sudah memiliki:
+       #assignments
+       #assignmentSearch
+       #assignmentCourseFilter
+       #assignmentsGrid
+    */
+
+    const assignmentsContainer =
+        $("assignmentsGrid");
+
+    const assignmentSearch =
+        $("assignmentSearch");
+
+    const assignmentCourseFilter =
+        $("assignmentCourseFilter");
+
+
+    /*
+       Jika section assignment sudah tersedia,
+       kita aktifkan.
+    */
+
+    if (
+        assignmentsContainer &&
+        assignmentCourseFilter
+    ) {
+
+        const assignmentCourses = [
+            ...new Set(
+                assignments
+                    .map(item => item.course)
+                    .filter(Boolean)
+            )
+        ];
+
+
+        assignmentCourses.forEach(course => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = course;
+            option.textContent = course;
+
+            assignmentCourseFilter.appendChild(
+                option
+            );
+        });
+    }
+
+
+    function renderAssignments() {
+
+        if (!assignmentsContainer) {
+            return;
+        }
+
+
+        const query =
+            (assignmentSearch?.value || "")
+                .toLowerCase()
+                .trim();
+
+
+        const selectedCourse =
+            assignmentCourseFilter?.value || "";
+
+
+        const filtered =
+            assignments.filter(item => {
+
+                const text = `
+                    ${item.course || ""}
+                    ${item.title || ""}
+                    ${item.type || ""}
+                    ${item.description || ""}
+                    ${(item.instructions || []).join(" ")}
+                `.toLowerCase();
+
+
+                const matchSearch =
+                    text.includes(query);
+
+
+                const matchCourse =
+                    !selectedCourse ||
+                    item.course === selectedCourse;
+
+
+                return (
+                    matchSearch &&
+                    matchCourse
+                );
+            });
+
+
+        if (!filtered.length) {
+
+            assignmentsContainer.innerHTML = `
+                <div class="empty">
+                    Tidak ada tugas yang cocok.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        assignmentsContainer.innerHTML =
+            filtered
+                .map(assignment => {
+
+                    const status =
+                        getAssignmentStatus(
+                            assignment
+                        );
+
+
+                    const instructions =
+                        Array.isArray(
+                            assignment.instructions
+                        )
+                            ? assignment.instructions
+                            : [];
+
+
+                    const materials =
+                        Array.isArray(
+                            assignment.materials
+                        )
+                            ? assignment.materials
+                            : [];
+
+
+                    const instructionHTML =
+                        instructions.length
+                            ? `
+                                <ol class="assignment-list">
+                                    ${instructions
+                                        .map(
+                                            instruction =>
+                                                `<li>
+                                                    ${esc(instruction)}
+                                                </li>`
+                                        )
+                                        .join("")}
+                                </ol>
+                            `
+                            : "";
+
+
+                    const materialsHTML =
+                        materials.length
+                            ? `
+                                <div class="assignment-materials">
+
+                                    ${materials
+                                        .map(
+                                            material =>
+                                                `
+                                                <a
+                                                    href="${esc(
+                                                        material.url || "#"
+                                                    )}"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    ${esc(
+                                                        material.label ||
+                                                        "Materi"
+                                                    )}
+                                                    ↗
+                                                </a>
+                                                `
+                                        )
+                                        .join("")}
+
+                                </div>
+                            `
+                            : "";
+
+
+                    const submission =
+                        assignment.submission;
+
+
+                    const submissionHTML =
+                        submission &&
+                        submission.url
+                            ? `
+                                <a
+                                    class="assignment-submit"
+                                    href="${esc(
+                                        submission.url
+                                    )}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    ${esc(
+                                        submission.label ||
+                                        "Kumpulkan Tugas"
+                                    )}
+                                    ↗
+                                </a>
+                            `
+                            : "";
+
+
+                    return `
+                        <article
+                            class="assignment-card"
+                            data-course="${esc(
+                                assignment.course
+                            )}"
+                        >
+
+                            <div class="assignment-top">
+
+                                <div>
+
+                                    <span class="assignment-number">
+                                        PERTEMUAN
+                                        ${esc(
+                                            assignment.meeting
+                                        )}
+                                    </span>
+
+                                    <span class="assignment-type">
+                                        ${esc(
+                                            assignment.type ||
+                                            "Tugas"
+                                        )}
+                                    </span>
+
+                                </div>
+
+                                <span
+                                    class="assignment-status ${esc(
+                                        status.className
+                                    )}"
+                                >
+                                    ${esc(
+                                        status.label
+                                    )}
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+                                ${esc(
+                                    assignment.title
+                                )}
+                            </h3>
+
+
+                            <p class="assignment-course">
+                                ${esc(
+                                    assignment.course
+                                )}
+                            </p>
+
+
+                            <p class="assignment-description">
+                                ${esc(
+                                    assignment.description
+                                )}
+                            </p>
+
+
+                            <div class="assignment-deadline">
+
+                                <small>
+                                    DEADLINE
+                                </small>
+
+                                <strong>
+                                    ${esc(
+                                        formatDate(
+                                            assignment.deadline
+                                        )
+                                    )}
+                                </strong>
+
+                            </div>
+
+
+                            ${
+                                instructionHTML
+                            }
+
+
+                            ${
+                                materialsHTML
+                            }
+
+
+                            ${
+                                submissionHTML
+                            }
+
+                        </article>
+                    `;
+                })
+                .join("");
+    }
+
+
+    if (assignmentSearch) {
+
+        assignmentSearch.addEventListener(
+            "input",
+            renderAssignments
+        );
+    }
+
+
+    if (assignmentCourseFilter) {
+
+        assignmentCourseFilter.addEventListener(
+            "change",
+            renderAssignments
+        );
+    }
+
+
+    renderAssignments();
+
+
+    /* =====================================================
+       YEAR
+       ===================================================== */
+
+    if ($("year")) {
+
+        $("year").textContent =
+            new Date().getFullYear();
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
+    const menu =
+        $("menu");
+
+    const navlinks =
+        $("navlinks");
+
+
+    if (menu && navlinks) {
+
+        menu.addEventListener(
+            "click",
+            () => {
+
+                navlinks.classList.toggle(
+                    "open"
+                );
+            }
+        );
+
+
+        navlinks
+            .querySelectorAll("a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        navlinks.classList.remove(
+                            "open"
+                        );
+                    }
+                );
+            });
+    }
+
+
+    /* =====================================================
+       DARK / LIGHT MODE
+       ===================================================== */
+
+    const themeButton =
+        $("theme");
+
+
+    if (themeButton) {
+
+        const savedTheme =
+            localStorage.getItem(
+                "academic-theme"
+            );
+
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+        }
+
+
+        themeButton.addEventListener(
+            "click",
+            () => {
+
+                document.body.classList.toggle(
+                    "dark-mode"
+                );
+
+
+                const isDark =
+                    document.body.classList.contains(
+                        "dark-mode"
+                    );
+
+
+                localStorage.setItem(
+                    "academic-theme",
+                    isDark
+                        ? "dark"
+                        : "light"
+                );
+            }
+        );
+    }
+
+
+    /* =====================================================
+       SCROLL PROGRESS
+       ===================================================== */
+
+    const progress =
+        $("progress");
+
+
+    function updateProgress() {
+
+        if (!progress) {
+            return;
+        }
+
+
+        const documentHeight =
+            document.documentElement
+                .scrollHeight -
+            window.innerHeight;
+
+
+        if (documentHeight <= 0) {
+
+            progress.style.width = "0%";
+
+            return;
+        }
+
+
+        const percentage =
+            (window.scrollY /
+                documentHeight) *
+            100;
+
+
+        progress.style.width =
+            `${Math.min(
+                100,
+                Math.max(0, percentage)
+            )}%`;
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateProgress,
+        {
+            passive: true
+        }
+    );
+
+
+    updateProgress();
+
+
+    /* =====================================================
+       IMAGE FALLBACK
+       ===================================================== */
+
+    const portraitImage =
+        document.querySelector(
+            ".portrait img"
+        );
+
+
+    if (portraitImage) {
+
+        portraitImage.addEventListener(
+            "error",
+            () => {
+
+                portraitImage.style.display =
+                    "none";
+
+
+                const initials =
+                    $("initials");
+
+
+                if (initials) {
+
+                    initials.style.display =
+                        "grid";
+                }
+            }
+        );
+    }
+}
+
+
+/* =========================================================
+   START APPLICATION
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    init
+);
