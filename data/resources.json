@@ -51,10 +51,7 @@
     "type": "Modul",
     "description": "Klasifikasi, confusion matrix, precision, recall, F1, dan ROC-AUC.",
     "files": []
-  }
-]
-
-[
+  },
   {
   "course": "Pengolahan Citra Digital",
   "meeting": 1,
@@ -85,3 +82,4 @@
   ]
 }
 ]
+
