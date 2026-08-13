@@ -1,39 +1,11 @@
 {
-  "stats": [
-    [
-      "AI / ML",
-      "Focus"
-    ],
-    [
-      "Deep Learning",
-      "Research"
-    ],
-    [
-      "Computer Vision",
-      "Focus"
-    ],
-    [
-      "Smart Agriculture",
-      "Application"
-    ]
-  ],
-  "links": [
-    [
-      "Google Scholar",
-      "#"
-    ],
-    [
-      "SINTA",
-      "#"
-    ],
-    [
-      "ORCID",
-      "#"
-    ],
-    [
-      "GitHub",
-      "https://github.com/miftahsholihinteknik-max"
-    ]
+  "name": "Miftahus Sholihin",
+  "title": "Dosen Teknik Informatika",
+  "institution": "Universitas Islam Lamongan",
+  "tagline": "Artificial Intelligence · Machine Learning · Deep Learning · Computer Vision",
+  "bio": [
+    "Dosen Teknik Informatika yang berfokus pada pengembangan kecerdasan buatan dan penerapannya untuk menyelesaikan persoalan nyata.",
+    "Aktivitas akademik mencakup pendidikan, penelitian, publikasi ilmiah, pembimbingan mahasiswa, dan pengembangan teknologi berbasis data."
   ],
   "skills": [
     "Artificial Intelligence",
@@ -44,54 +16,70 @@
     "CNN",
     "LSTM",
     "Transfer Learning",
+    "Explainable AI",
     "Python",
     "TensorFlow",
     "Keras"
   ],
-  "research": [
-    [
-      "01",
-      "Artificial Intelligence",
-      "Sistem cerdas untuk klasifikasi, prediksi, diagnosis, dan pengambilan keputusan berbasis data."
-    ],
-    [
-      "02",
-      "Computer Vision",
-      "Deep learning untuk klasifikasi citra, deteksi objek, dan analisis visual."
-    ],
-    [
-      "03",
-      "Smart Agriculture",
-      "AI untuk pertanian presisi, diagnosis tanaman, prediksi lingkungan, dan monitoring."
-    ]
+  "links": [
+    {
+      "label": "Google Scholar",
+      "url": "#"
+    },
+    {
+      "label": "SINTA",
+      "url": "#"
+    },
+    {
+      "label": "ORCID",
+      "url": "#"
+    },
+    {
+      "label": "Scopus",
+      "url": "#"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/miftahsholihinteknik-max"
+    }
   ],
-  "education": [
-    [
-      "—",
-      "Program Magister / Doktor",
-      "Tambahkan universitas dan tahun."
-    ],
-    [
-      "—",
-      "Program Sarjana",
-      "Tambahkan universitas dan tahun."
-    ]
+  "research": [
+    {
+      "number": "01",
+      "title": "Artificial Intelligence",
+      "description": "Sistem cerdas untuk klasifikasi, prediksi, diagnosis, dan pengambilan keputusan berbasis data."
+    },
+    {
+      "number": "02",
+      "title": "Deep Learning",
+      "description": "CNN, LSTM, transfer learning, attention mechanism, dan explainable AI."
+    },
+    {
+      "number": "03",
+      "title": "Computer Vision",
+      "description": "Analisis citra, visual recognition, dan diagnosis otomatis berbasis deep learning."
+    },
+    {
+      "number": "04",
+      "title": "Smart Agriculture",
+      "description": "AI untuk pertanian presisi, diagnosis tanaman, dan prediksi lingkungan."
+    }
   ],
   "contact": [
-    [
-      "Email",
-      "Tambahkan email akademik",
-      "#"
-    ],
-    [
-      "Institution",
-      "Universitas Islam Lamongan",
-      "#"
-    ],
-    [
-      "GitHub",
-      "miftahsholihinteknik-max",
-      "https://github.com/miftahsholihinteknik-max"
-    ]
+    {
+      "label": "Email",
+      "value": "Tambahkan email akademik",
+      "url": "#"
+    },
+    {
+      "label": "Institution",
+      "value": "Universitas Islam Lamongan",
+      "url": "#"
+    },
+    {
+      "label": "GitHub",
+      "value": "miftahsholinteknik-max",
+      "url": "https://github.com/miftahsholihinteknik-max"
+    }
   ]
 }

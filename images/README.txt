@@ -1,1 +1,1 @@
-Masukkan foto profil dengan nama profile.jpg di sini.
+Upload foto profil dengan nama profile.jpg

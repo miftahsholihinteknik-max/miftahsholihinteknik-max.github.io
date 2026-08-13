@@ -1,16 +1,5 @@
-# Miftahus Sholihin — Academic Portal
+# Miftahus Sholihin — Elegant Academic Portfolio
 
-Profil dosen + research + publications + teaching centre + academic resources.
+Versi premium/minimalis dengan visual editorial, tipografi serif, research section gelap, responsive mobile, search publikasi/resource, filter tahun/mata kuliah, dan data JSON.
 
-### Data
-- `data/profile.json`
-- `data/publications.json`
-- `data/courses.json`
-- `data/resources.json`
-
-### File akademik
-- `images/profile.jpg`
-- `cv/CV_Miftahus_Sholihin.pdf`
-- `materials/` untuk PDF, PPTX, IPYNB, dataset, tugas, dll.
-
-Upload isi folder ini ke root repository `miftahsholihinteknik-max.github.io`, branch `main`, folder `/ (root)`.
+Upload isi paket ke root repository `miftahsholihinteknik-max.github.io`. Gunakan folder `data/` untuk mengelola isi website tanpa mengubah desain.

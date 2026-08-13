@@ -3,32 +3,32 @@
     "course": "Machine Learning",
     "meeting": 1,
     "title": "Pengantar Machine Learning",
-    "type": "PDF",
-    "description": "Konsep dasar, paradigma, dan workflow machine learning.",
-    "url": "materials/machine-learning/pertemuan-01/README.txt"
+    "type": "Modul",
+    "description": "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
+    "files": []
   },
   {
     "course": "Machine Learning",
     "meeting": 2,
     "title": "Data Preprocessing",
-    "type": "PDF",
-    "description": "Data cleaning, transformation, encoding, dan scaling.",
-    "url": "materials/machine-learning/pertemuan-02/README.txt"
+    "type": "Modul",
+    "description": "Data cleaning, transformation, encoding, normalization, dan scaling.",
+    "files": []
   },
   {
     "course": "Machine Learning",
     "meeting": 3,
     "title": "Regression",
-    "type": "PDF",
-    "description": "Konsep regresi dan evaluasi model.",
-    "url": "materials/machine-learning/pertemuan-03/README.txt"
+    "type": "Modul",
+    "description": "Regresi, training, prediksi, dan evaluasi model.",
+    "files": []
   },
   {
     "course": "Machine Learning",
     "meeting": 4,
     "title": "Classification",
-    "type": "PDF",
-    "description": "Konsep klasifikasi dan evaluasi model.",
-    "url": "materials/machine-learning/pertemuan-04/README.txt"
+    "type": "Modul",
+    "description": "Klasifikasi, confusion matrix, precision, recall, F1, dan ROC-AUC.",
+    "files": []
   }
 ]
