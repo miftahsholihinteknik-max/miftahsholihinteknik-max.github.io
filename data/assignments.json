@@ -1,0 +1,150 @@
+[
+  {
+    "course": "Machine Learning",
+    "meeting": 1,
+    "title": "Eksplorasi Konsep Machine Learning",
+    "type": "Tugas Individu",
+    "deadline": "2026-09-01",
+    "status": "open",
+    "description": "Mahasiswa memahami konsep dasar machine learning dan mampu mengidentifikasi penerapannya pada permasalahan nyata.",
+    "instructions": [
+      "Jelaskan pengertian machine learning dengan bahasa sendiri.",
+      "Identifikasi minimal tiga contoh penerapan machine learning.",
+      "Pilih satu permasalahan nyata yang dapat diselesaikan menggunakan machine learning.",
+      "Jelaskan pendekatan machine learning yang sesuai.",
+      "Susun laporan dalam format PDF."
+    ],
+    "materials": [
+      {
+        "label": "Modul Pertemuan 1",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Video Pembelajaran",
+        "url": "https://www.youtube.com/..."
+      }
+    ],
+    "submission": {
+      "label": "Kumpulkan Tugas",
+      "url": "https://forms.google.com/..."
+    }
+  },
+  {
+    "course": "Machine Learning",
+    "meeting": 2,
+    "title": "Data Preprocessing dengan Python",
+    "type": "Praktikum",
+    "deadline": "2026-09-08",
+    "status": "open",
+    "description": "Melakukan proses pembersihan dan transformasi dataset menggunakan Python dan pandas.",
+    "instructions": [
+      "Gunakan dataset yang telah disediakan.",
+      "Identifikasi missing value.",
+      "Lakukan data cleaning.",
+      "Lakukan encoding data kategorikal.",
+      "Lakukan normalisasi atau standardisasi.",
+      "Dokumentasikan hasil preprocessing."
+    ],
+    "materials": [
+      {
+        "label": "Dataset",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Notebook Colab",
+        "url": "https://colab.research.google.com/..."
+      }
+    ],
+    "submission": {
+      "label": "Submit Notebook",
+      "url": "https://forms.google.com/..."
+    }
+  },
+  {
+    "course": "Machine Learning",
+    "meeting": 3,
+    "title": "Implementasi Linear Regression",
+    "type": "Praktikum",
+    "deadline": "2026-09-15",
+    "status": "open",
+    "description": "Membangun model regresi linear menggunakan Python dan mengevaluasi performa model.",
+    "instructions": [
+      "Gunakan dataset yang telah ditentukan.",
+      "Lakukan preprocessing dataset.",
+      "Bangun model Linear Regression.",
+      "Lakukan training dan testing.",
+      "Hitung MAE, MSE, RMSE, dan R².",
+      "Interpretasikan hasil evaluasi."
+    ],
+    "materials": [
+      {
+        "label": "Dataset",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Notebook Colab",
+        "url": "https://colab.research.google.com/..."
+      }
+    ],
+    "submission": {
+      "label": "Kumpulkan Praktikum",
+      "url": "https://forms.google.com/..."
+    }
+  },
+  {
+    "course": "Machine Learning",
+    "meeting": 4,
+    "title": "Implementasi Classification",
+    "type": "Praktikum",
+    "deadline": "2026-09-22",
+    "status": "open",
+    "description": "Membangun model klasifikasi dan mengevaluasi performanya menggunakan confusion matrix dan berbagai metrik klasifikasi.",
+    "instructions": [
+      "Siapkan dataset klasifikasi.",
+      "Lakukan preprocessing.",
+      "Bangun model klasifikasi.",
+      "Buat confusion matrix.",
+      "Hitung accuracy, precision, recall, dan F1-score.",
+      "Interpretasikan hasil."
+    ],
+    "materials": [
+      {
+        "label": "Dataset",
+        "url": "https://drive.google.com/..."
+      },
+      {
+        "label": "Materi Classification",
+        "url": "https://drive.google.com/..."
+      }
+    ],
+    "submission": {
+      "label": "Submit Tugas",
+      "url": "https://forms.google.com/..."
+    }
+  },
+  {
+    "course": "Artificial Intelligence",
+    "meeting": 1,
+    "title": "Konsep Dasar Artificial Intelligence",
+    "type": "Tugas Individu",
+    "deadline": "2026-09-03",
+    "status": "open",
+    "description": "Memahami konsep kecerdasan buatan, karakteristik sistem cerdas, dan penerapannya.",
+    "instructions": [
+      "Jelaskan konsep dasar artificial intelligence.",
+      "Jelaskan karakteristik sistem cerdas.",
+      "Berikan minimal lima contoh penerapan AI.",
+      "Analisis satu contoh penerapan AI pada kehidupan nyata."
+    ],
+    "materials": [
+      {
+        "label": "Materi AI",
+        "url": "https://drive.google.com/..."
+      }
+    ],
+    "submission": {
+      "label": "Kumpulkan Tugas",
+      "url": "https://forms.google.com/..."
+    }
+  }
+]
