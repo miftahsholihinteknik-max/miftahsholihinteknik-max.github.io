@@ -53,3 +53,35 @@
     "files": []
   }
 ]
+
+[
+  {
+  "course": "Pengolahan Citra Digital",
+  "meeting": 1,
+  "title": "Pengantar Machine Learning",
+  "type": "Modul",
+  "description": "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
+  "links": [
+    {
+      "label": "Modul PDF",
+      "type": "pdf",
+      "url": "https://drive.google.com/..."
+    },
+    {
+      "label": "Video YouTube",
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=..."
+    },
+    {
+      "label": "Notebook",
+      "type": "notebook",
+      "url": "https://colab.research.google.com/..."
+    },
+    {
+      "label": "Dataset",
+      "type": "dataset",
+      "url": "https://drive.google.com/..."
+    }
+  ]
+}
+]
