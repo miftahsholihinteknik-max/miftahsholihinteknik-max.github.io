@@ -3,13 +3,13 @@
     "course": "Machine Learning",
     "meeting": 1,
     "title": "Pengantar Machine Learning",
-    "type": "Modul",
-    "description": "Konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
+    "type": "Pertemuan 1",
+    "description": "Definisi ML, sejarah perkembangannya, taksonomi (supervised/unsupervised/RL), serta aplikasinya dalam industri.",
     "links": [
       {
         "label": "Modul PDF",
         "type": "pdf",
-        "url": "https://drive.google.com/file/d/1Lu3JWXfQKvjZX33L6_3O1g7h_iXjVdBN/view?usp=sharing"
+        //"url": "https://drive.google.com/file/d/1Lu3JWXfQKvjZX33L6_3O1g7h_iXjVdBN/view?usp=sharing"
       },
       {
         "label": "Video YouTube",
