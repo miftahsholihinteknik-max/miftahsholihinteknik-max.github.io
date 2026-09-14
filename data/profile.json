@@ -62,13 +62,13 @@
   "contact": [
     {
       "label": "Email",
-      "value": "Tambahkan email akademik",
+      "value": "email",
       "url": "mailto: miftahus.sholihin@unisla.ac.id"
     },
     {
       "label": "Institution",
       "value": "Universitas Islam Lamongan",
-      "url": "www.unisla.ac.id"
+      "url": "https://unisla.ac.id/"
     },
     {
       "label": "GitHub",
