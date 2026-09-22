@@ -3,7 +3,7 @@
     "course": "Machine Learning",
     "meeting": 1,
     "title": "Pengantar Machine Learning",
-    "type": "Pertemuan 1",
+    "type": "Materi",
     "description": "Definisi ML, sejarah perkembangannya, taksonomi (supervised/unsupervised/RL), serta aplikasinya dalam industri.",
     "links": [
       {
@@ -29,31 +29,7 @@
     ]
   },
 
-  {
-    "course": "Machine Learning",
-    "meeting": 2,
-    "title": "Data Preprocessing",
-    "type": "Modul",
-    "description": "Data cleaning, transformation, encoding, normalization, dan scaling.",
-    "links": [
-      {
-        "label": "Modul PDF",
-        "type": "pdf",
-        "url": "https://drive.google.com/..."
-      },
-      {
-        "label": "Notebook Colab",
-        "type": "notebook",
-        "url": "https://colab.research.google.com/..."
-      },
-      {
-        "label": "Dataset",
-        "type": "dataset",
-        "url": "https://drive.google.com/..."
-      }
-    ]
-  },
-
+  
   {
     "course": "Artificial Intelligence",
     "meeting": 1,
