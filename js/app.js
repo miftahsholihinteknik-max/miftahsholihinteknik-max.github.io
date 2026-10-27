@@ -166,26 +166,31 @@ const fallbackProfile = {
 const fallbackAssignments = [
   {
     course: "Machine Learning",
-    meeting: 1,
-    title: "Eksplorasi Konsep Machine Learning",
-    type: "Tugas Individu",
-    deadline: "2026-09-01",
-    status: "open",
-    description:
-      "Eksplorasi konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
-    instructions: [
-      "Pelajari materi pertemuan 1.",
-      "Buat ringkasan konsep machine learning.",
-      "Berikan minimal tiga contoh penerapan machine learning."
+    meeting: 7,
+    "type": "Tugas Individu",
+    "deadline": "2026-11-10",
+    "status": "open",
+    "description": "Mahasiswa mengimplementasikan algoritma KNN dari nol, memvalidasinya menggunakan scikit-learn, lalu menganalisis pengaruh K, metrik jarak, dan normalisasi pada dataset nyata.",
+    "instructions": [
+      "Mengimplementasikan fungsi jarak (Euclidean, Manhattan, Minkowski) dan algoritma KNN tanpa menggunakan pustaka KNN siap pakai.",
+      "Menerapkan normalisasi data dan weighted KNN.",
+      "Merancang eksperimen untuk memilih K, metrik, dan prapemrosesan.",
+      "Mengevaluasi model menggunakan confusion matrix, akurasi, presisi, recall, dan F1-score"
     ],
-    materials: [],
+    materials: [{
+        "label": "Modul Pertemuan 1",
+        "url": "https://drive.google.com/"
+      },
+      {
+        "label": "Video Pembelajaran",
+        "url": "https://www.youtube.com/"
+      }],
     submission: {
       label: "Kumpulkan Tugas",
-      url: "#"
+      url: "https://forms.google.com/"
     }
   }
 ];
-
 
 /* =========================================================
    GLOBAL DATA
