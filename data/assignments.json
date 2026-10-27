@@ -1,17 +1,17 @@
 [
   {
     "course": "Machine Learning",
-    "meeting": 1,
-    "title": "Eksplorasi Konsep Machine Learning",
+    "meeting": 7,
+    "title": "Tugas Implementasi Algoritma K-Nearest Neighbors (KNN)",
     "type": "Tugas Individu",
-    "deadline": "2026-09-01",
+    "deadline": "2026-11-10",
     "status": "open",
-    "description": "Eksplorasi konsep dasar, paradigma, workflow, dan contoh penerapan machine learning.",
+    "description": "Mahasiswa mengimplementasikan algoritma KNN dari nol, memvalidasinya menggunakan scikit-learn, lalu menganalisis pengaruh K, metrik jarak, dan normalisasi pada dataset nyata.",
     "instructions": [
-      "Pelajari materi Machine Learning pada pertemuan 1.",
-      "Buat ringkasan mengenai konsep dasar machine learning.",
-      "Jelaskan perbedaan supervised learning, unsupervised learning, dan reinforcement learning.",
-      "Berikan minimal tiga contoh penerapan machine learning dalam kehidupan nyata."
+      "Mengimplementasikan fungsi jarak (Euclidean, Manhattan, Minkowski) dan algoritma KNN tanpa menggunakan pustaka KNN siap pakai.",
+      "Menerapkan normalisasi data dan weighted KNN.",
+      "Merancang eksperimen untuk memilih K, metrik, dan prapemrosesan.",
+      "Mengevaluasi model menggunakan confusion matrix, akurasi, presisi, recall, dan F1-score"
     ],
     "materials": [
       {
