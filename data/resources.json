@@ -29,6 +29,36 @@
     ]
   },
 
+  {
+    "course": "Machine Learning",
+    "meeting": 7,
+    "title": "Konsep Dasar Artificial Intelligence",
+    "type": "Materi",
+    "description": "Mengklasifikasikan data berdasarkan kedekatan: konsep, perhitungan manual, dan implementasi.",
+    "links": [
+      {
+        "label": "Materi",
+        "type": "pdf",
+        "url": "https://drive.google.com/file/d/1MYOuBDkah9RiKyQhIZM_BMPgmT343kcr/view?usp=sharing"
+      },
+      {
+        "label": "Video YouTube",
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=..."
+      },
+      {
+        "label": "Notebook Colab",
+        "type": "notebook",
+        "url": "https://colab.research.google.com/..."
+      },
+      {
+        "label": "Dataset",
+        "type": "dataset",
+        "url": "https://drive.google.com/..."
+      }
+    ]
+  },
+
   
   {
     "course": "Artificial Intelligence",
