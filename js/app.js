@@ -178,16 +178,16 @@ const fallbackAssignments = [
       "Mengevaluasi model menggunakan confusion matrix, akurasi, presisi, recall, dan F1-score"
     ],
     materials: [{
-        "label": "Modul Pertemuan 1",
-        "url": "https://drive.google.com/"
+        "label": "Tugas",
+        "url": "https://drive.google.com/file/d/1ZBD2EGy_IdMZokiVicT2Bs--3S2C0-Hd/view?usp=sharing"
       },
       {
-        "label": "Video Pembelajaran",
-        "url": "https://www.youtube.com/"
+        "label": "Template Laporan",
+        "url": "https://docs.google.com/document/d/1vZ0HtvE4dUMinrLei-rCi2Jjl7W4N09C/edit?usp=sharing&ouid=103299003441246194918&rtpof=true&sd=true"
       }],
     submission: {
       label: "Kumpulkan Tugas",
-      url: "https://forms.google.com/"
+      url: "https://forms.gle/Sbo4DiRx4kk3YuqL7"
     }
   }
 ];
