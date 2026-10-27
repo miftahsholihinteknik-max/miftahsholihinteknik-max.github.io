@@ -32,7 +32,7 @@
   {
     "course": "Machine Learning",
     "meeting": 7,
-    "title": "Konsep Dasar Artificial Intelligence",
+    "title": "K-Nearest Neighbors",
     "type": "Materi",
     "description": "Mengklasifikasikan data berdasarkan kedekatan: konsep, perhitungan manual, dan implementasi.",
     "links": [
